@@ -3,10 +3,6 @@ html {
     background-color: #0b132b;
 }
 
-h1 {
-    font-size: 1000%;
-}
-
 button {
     box-shadow: none;
     background-color: #3a506b;
@@ -35,6 +31,17 @@ button {
 
 .timer{
     color: #3a506b;
+    font-size: 8em;
+    text-align: center;
+    width: 450px;
+    background-color: transparent;
+    border: transparent;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .arc-wrapper {

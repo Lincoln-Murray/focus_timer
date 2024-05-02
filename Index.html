@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="style.css">
-<html> <head>
-    <title>Focus Timer</title>
-</head> 
-<div class="centre">
-<div class="arc-wrapper">
-        <div class="arc arc_start"></div>    
-        <div class="arc arc_end" id="end"></div>
-</div>
-<span class="dot"><div class="centre"><h1 class="timer" id="timer">10:00</h1></div></span>
-</div>
-<div class="centre" style="top: 87%; background-color: #1c2541; width: 8%; height: 5%;">
-<button type="button" class="centre" style="left: 25%;"
-onclick="start()"><script src="main.js"></script>
-Start</button>
-<button type="button" class="centre" style="left: 75%;"
-onclick="end()"><script src="main.js"></script>
-End</button>
+<script src="main.js">
+</script>
 
-</div>
+<html>
+    <head>
+        <title>
+            Focus Timer
+        </title>
+    </head> 
+
+    <div class="centre">
+
+
+        <span id = "dot" class="dot" onclick="console.log('click')">
+            <div class="centre">
+                <input class="timer" id="timer" value="10:00">
+                </input>
+            </div>
+        </span>
+
+        <div class="centre" style="top: 87%; background-color: #1c2541; width: 8%; height: 5%;">
+            <button type="button" class="centre" style="left: 25%;" onclick="pause_unpause()">
+                Start
+            </button>
+        </div>
+    </div>
 </html>
