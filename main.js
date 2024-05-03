@@ -1,9 +1,5 @@
-time = 600
+time = 600;
 playing = false
-
-window.onload = function(){
-    document.getElementById('dot').onclick = function() {pause_unpause
-}}
 
 function start(){
     end()
@@ -23,9 +19,7 @@ function start(){
 }
 
 function end(){
-    //console.log(time)
     time = collect_input()
-    //console.log(time)
     update_time(time)
     playing = false
 }
@@ -39,7 +33,6 @@ function pause_unpause(){
         document.getElementById('anim_dot').style.animationName = 'expand'
         start()
     }
-    console.log(document.getElementById('anim_dot').style.animationName)
 }
 
 function collect_input(){
@@ -91,44 +84,27 @@ document.addEventListener("click", (evt) => {
     const dot = document.getElementById("dot");
     const anim_dot = document.getElementById("anim_dot");
     
-    let El = evt.target;    
-    do {
-        if(El === timer) {
-            playing = false
-        }
-        else if (El === dot){
-            pause_unpause()
-        }
-        else if (El === anim_dot){
-            pause_unpause()
-        }
-        else{
-            time = collect_input()
-            update_time(time)
-        }
-        El = El.parentNode;
+    let El = evt.target;
+    if (El === dot){
+        pause_unpause()
     }
-    while (El === timer);
+    else if (El === anim_dot){
+        pause_unpause()
+    }
+    else{
+        end()
+    }
+    //El = El.parentNode;
 
 });
 
 document.addEventListener("keydown", (evt) => {
     console.log(evt.code)
-        if(evt.code === 'Space') {
-            pause_unpause()
-        }
-
+    if(evt.code === 'Space') {
+        pause_unpause()
+    }
 });
 
 document.addEventListener('AnimationEnd', function(){
     this.style.webkitAnimationName = '';
 }, false);
-
-/*
-function arc_end(_angle){
-    let angle = _angle
-    document.getElementById('end').style.mozTransform = 'rotate('+String(angle)+' deg)';
-    document.getElementById('end').style.msTransform = 'rotate('+String(angle)+' deg)';
-    document.getElementById('end').style.oTransform = 'rotate('+String(angle)+' deg)';
-    document.getElementById('end').style.transform = 'rotate('+String(angle)+' deg)';
-}*/
