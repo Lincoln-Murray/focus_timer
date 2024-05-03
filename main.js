@@ -7,7 +7,7 @@ window.onload = function(){
 
 function start(){
     end()
-    var endDate = new Date().getTime() + (time+1)*1000;
+    var endDate = new Date().getTime() + (time)*1000;
     playing = true
     var timer = setInterval(function() {
         if (playing == true){
@@ -19,7 +19,7 @@ function start(){
         else{
             clearInterval(timer);
         }
-    }, 500);
+    }, 50);
 }
 
 function end(){
@@ -32,11 +32,14 @@ function end(){
 
 function pause_unpause(){
     if (playing == true){
+        document.getElementById('anim_dot').style.animationName = 'shrink'
         end()
     }
     else{
+        document.getElementById('anim_dot').style.animationName = 'expand'
         start()
     }
+    console.log(document.getElementById('anim_dot').style.animationName)
 }
 
 function collect_input(){
@@ -83,7 +86,43 @@ function update_time(_temp_time){
     document.getElementById('timer').value = time_string
 }
 
+document.addEventListener("click", (evt) => {
+    const timer = document.getElementById("timer");
+    const dot = document.getElementById("dot");
+    const anim_dot = document.getElementById("anim_dot");
+    
+    let El = evt.target;    
+    do {
+        if(El === timer) {
+            playing = false
+        }
+        else if (El === dot){
+            pause_unpause()
+        }
+        else if (El === anim_dot){
+            pause_unpause()
+        }
+        else{
+            time = collect_input()
+            update_time(time)
+        }
+        El = El.parentNode;
+    }
+    while (El === timer);
 
+});
+
+document.addEventListener("keydown", (evt) => {
+    console.log(evt.code)
+        if(evt.code === 'Space') {
+            pause_unpause()
+        }
+
+});
+
+document.addEventListener('AnimationEnd', function(){
+    this.style.webkitAnimationName = '';
+}, false);
 
 /*
 function arc_end(_angle){
