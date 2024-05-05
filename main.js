@@ -26,10 +26,12 @@ function end(){
 
 function pause_unpause(){
     if (playing == true){
+        document.getElementById('anim_dot').style.animationDuration = 0.3;
         document.getElementById('anim_dot').style.animationName = 'shrink';
         end();
     }
     else{
+        document.getElementById('anim_dot').style.animationDuration = 0.8;
         document.getElementById('anim_dot').style.animationName = 'expand';
         start();
     }
