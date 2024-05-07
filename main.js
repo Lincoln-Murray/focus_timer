@@ -94,7 +94,9 @@ document.addEventListener("click", (evt) => {
     else if (El === anim_dot){
         pause_unpause();
     }
-    else{
+    else if (El === timer){
+        document.getElementById('anim_dot').style.animationDuration = 0.3;
+        document.getElementById('anim_dot').style.animationName = 'shrink';
         end();
     }
 });
