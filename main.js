@@ -26,8 +26,8 @@ function end(){
     //console.log(time)
     time = collect_input()
     //console.log(time)
-    update_time(time)
     playing = false
+    update_time(time)
 }
 
 function pause_unpause(){
@@ -56,36 +56,41 @@ function collect_input(){
 }
 
 function update_time(_temp_time){
-    time_string = ''
-    temp_time = _temp_time
-    if (temp_time>= 60){
-        if (temp_time>= 3600){
-            time_string = time_string + String(Math.floor(temp_time/3600)) + ':'
-            temp_time -= (Math.floor(temp_time/3600))*3600
-            if (Math.floor(temp_time/60) < 10){
-                time_string = time_string + '0' + String(Math.floor(temp_time/60)) + ':'
+    if (playing === false){
+        document.getElementById('title').textContent = 'Focus Timer- Paused'
+    }
+    else{
+        time_string = ''
+        temp_time = _temp_time
+        if (temp_time>= 60){
+            if (temp_time>= 3600){
+                time_string = time_string + String(Math.floor(temp_time/3600)) + ':'
+                temp_time -= (Math.floor(temp_time/3600))*3600
+                if (Math.floor(temp_time/60) < 10){
+                    time_string = time_string + '0' + String(Math.floor(temp_time/60)) + ':'
+                }
+                else{
+                    time_string = time_string + String(Math.floor(temp_time/60)) + ':'
+                }
             }
             else{
                 time_string = time_string + String(Math.floor(temp_time/60)) + ':'
             }
-        }
-        else{
-            time_string = time_string + String(Math.floor(temp_time/60)) + ':'
-        }
-        temp_time -= Math.floor(temp_time/60)*60
-        if (temp_time < 10){
-            time_string = time_string + '0' + String(temp_time)
+            temp_time -= Math.floor(temp_time/60)*60
+            if (temp_time < 10){
+                time_string = time_string + '0' + String(temp_time)
+            }
+            else{
+                time_string = time_string + String(temp_time)
+            }
         }
         else{
             time_string = time_string + String(temp_time)
         }
+        document.getElementById('timer').value = time_string
+        document.getElementById('title').textContent = 'Focus Timer- ' + time_string
     }
-    else{
-        time_string = time_string + String(temp_time)
     }
-    document.getElementById('timer').value = time_string
-    document.getElementById('title').textContent = 'Focus Timer- ' + time_string
-}
 
 document.addEventListener("click", (evt) => {
     const timer = document.getElementById("timer");
