@@ -1,13 +1,10 @@
 time = 600
 playing = false
-
-window.onload = function(){
-    document.getElementById('dot').onclick = function() {pause_unpause
-}}
+prev_time = -600
 
 function start(){
     end()
-    var endDate = new Date().getTime() + (time)*1000;
+    var endDate = new Date().getTime() + (time)*1000+300;
     playing = true
     var timer = setInterval(function() {
         if (playing == true && new Date().getTime() <= endDate ){
@@ -59,69 +56,78 @@ function update_time(_temp_time){
         document.getElementById('title').textContent = 'Focus Timer- Paused'
     }
     else{
-        time_string = ''
-        temp_time = _temp_time
-        if (temp_time>= 60){
-            if (temp_time>= 3600){
-                time_string = time_string + String(Math.floor(temp_time/3600)) + ':'
-                temp_time -= (Math.floor(temp_time/3600))*3600
-                if (Math.floor(temp_time/60) < 10){
-                    time_string = time_string + '0' + String(Math.floor(temp_time/60)) + ':'
+        if (_temp_time != prev_time){
+            prev_time = _temp_time
+            time_string = ''
+            temp_time = _temp_time
+            if (temp_time>= 60){
+                if (temp_time>= 3600){
+                    time_string = time_string + String(Math.floor(temp_time/3600)) + ':'
+                    temp_time -= (Math.floor(temp_time/3600))*3600
+                    if (Math.floor(temp_time/60) < 10){
+                        time_string = time_string + '0' + String(Math.floor(temp_time/60)) + ':'
+                    }
+                    else{
+                        time_string = time_string + String(Math.floor(temp_time/60)) + ':'
+                    }
                 }
                 else{
                     time_string = time_string + String(Math.floor(temp_time/60)) + ':'
                 }
-            }
-            else{
-                time_string = time_string + String(Math.floor(temp_time/60)) + ':'
-            }
-            temp_time -= Math.floor(temp_time/60)*60
-            if (temp_time < 10){
-                time_string = time_string + '0' + String(temp_time)
+                temp_time -= Math.floor(temp_time/60)*60
+                if (temp_time < 10){
+                    time_string = time_string + '0' + String(temp_time)
+                }
+                else{
+                    time_string = time_string + String(temp_time)
+                }
             }
             else{
                 time_string = time_string + String(temp_time)
             }
+            document.getElementById('timer').value = time_string
+            document.getElementById('title').textContent = 'Focus Timer- ' + time_string
         }
-        else{
-            time_string = time_string + String(temp_time)
-        }
-        document.getElementById('timer').value = time_string
-        document.getElementById('title').textContent = 'Focus Timer- ' + time_string
     }
-    }
+}
 
 document.addEventListener("click", (evt) => {
     const timer = document.getElementById("timer");
     const dot = document.getElementById("dot");
     const anim_dot = document.getElementById("anim_dot");
     
-    let El = evt.target;    
-    do {
-        if(El === timer) {
-            playing = false
-        }
-        else if (El === dot){
-            pause_unpause()
-        }
-        else if (El === anim_dot){
-            pause_unpause()
-        }
-        else{
-            time = collect_input()
-            update_time(time)
-        }
-        El = El.parentNode;
+    let El = evt.target;
+    if(El === timer) {
+        document.getElementById('anim_dot').style.animationName = 'shrink'
+        document.getElementById('anim_dot').style.backgroundColor = 'Var(--foreground)'
+        end()
     }
-    while (El === timer);
-
+    else if (El === dot){
+        pause_unpause()
+    }
+    else if (El === anim_dot){
+        pause_unpause()
+    }
+    else{
+        time = collect_input()
+        update_time(time)
+    }
 });
 
 document.addEventListener("keydown", (evt) => {
         if(evt.code === 'Space') {
             pause_unpause()
         }
+});
 
+document.addEventListener('focus', (evt) => {
+    const timer = document.getElementById("timer");
+    let El = evt.target;
+    if (El === timer){
+        document.getElementById('anim_dot').style.animationName = 'shrink'
+        document.getElementById('anim_dot').style.backgroundColor = 'Var(--foreground)'
+        end()
+    }
 });
 
 /*
