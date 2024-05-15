@@ -1,12 +1,18 @@
 
+:root{
+    --background: #0b132b;
+    --foreground: #1c2541;
+    --text: #3a506b;
+}
+
 html {
-    background-color: #0b132b;
+    background-color: var(--background);
     overflow:hidden;
 }
 
 button {
     box-shadow: none;
-    background-color: #3a506b;
+    background-color: var(--text);
 }
 
 @keyframes shrink {
@@ -18,7 +24,7 @@ button {
     to {
         height: 500px;
         width: 500px;
-        background-color: #1c2541;
+        background-color: var(--foreground);
     }
 }
 
@@ -26,7 +32,7 @@ button {
     from {
         height: 500px;
         width: 500px;
-        background-color: #1c2541;
+        background-color: var(--foreground);
     }
     to {
         height: 1920px;
@@ -38,7 +44,7 @@ button {
 .anim_dot {
     height: 500px;
     width: 500px;
-    background-color: #1c2541;
+    background-color: var(--foreground);
     border-radius: 50%;
     display: inline-block;
     margin-left: auto;
@@ -83,7 +89,7 @@ button {
 }
 
 .timer{
-    color: #3a506b;
+    color: var(--text);
     font-size: 8em;
     text-align: center;
     width: 450px;
