@@ -1,8 +1,9 @@
 
 :root{
-    --background: #0b132b;
-    --foreground: #1c2541;
-    --text: #3a506b;
+    --background: #065143;
+    --midground: #1c2541;
+    --foreground: #129490;
+    --text: #70B77E;
 }
 
 html {
@@ -64,7 +65,7 @@ button {
 .dot {
     height: 500px;
     width: 500px;
-    background-color: #1c2541;
+    background-color: var(--midground);
     border-radius: 50%;
     display: inline-block;
     margin-left: auto;

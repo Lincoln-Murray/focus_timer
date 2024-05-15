@@ -23,9 +23,7 @@ function start(){
 }
 
 function end(){
-    //console.log(time)
     time = collect_input()
-    //console.log(time)
     playing = false
     update_time(time)
 }
@@ -33,13 +31,14 @@ function end(){
 function pause_unpause(){
     if (playing == true){
         document.getElementById('anim_dot').style.animationName = 'shrink'
+        document.getElementById('anim_dot').style.backgroundColor = 'Var(--foreground)'
         end()
     }
     else{
         document.getElementById('anim_dot').style.animationName = 'expand'
+        document.getElementById('anim_dot').style.backgroundColor = 'Var(--midground)'
         start()
     }
-    console.log(document.getElementById('anim_dot').style.animationName)
 }
 
 function collect_input(){
@@ -119,16 +118,11 @@ document.addEventListener("click", (evt) => {
 });
 
 document.addEventListener("keydown", (evt) => {
-    console.log(evt.code)
         if(evt.code === 'Space') {
             pause_unpause()
         }
 
 });
-
-document.addEventListener('AnimationEnd', function(){
-    this.style.webkitAnimationName = '';
-}, false);
 
 /*
 function arc_end(_angle){
