@@ -22,7 +22,6 @@ function start(){
 
 function end(){
     time = collect_input()
-    document.cookie = 'time =' + String(time)
     playing = false
     update_time(time)
 }
@@ -88,7 +87,12 @@ function update_time(_temp_time, _skip = false){
                 time_string = time_string + String(temp_time)
             }
             document.getElementById('timer').value = time_string
-            document.getElementById('title').textContent = 'Focus Timer- ' + time_string
+            if (_skip != true){
+                document.getElementById('title').textContent = 'Focus Timer- ' + time_string
+            }
+            time = collect_input()
+            console.log(time)
+            document.cookie = 'time =' + String(time)
         }
     }
 }
