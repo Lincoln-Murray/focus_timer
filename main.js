@@ -121,9 +121,12 @@ document.addEventListener("click", (evt) => {
 });
 
 document.addEventListener("keydown", (evt) => {
-        if(evt.code === 'Space') {
-            pause_unpause()
-        }
+    if (evt.repeat === true){
+        return
+    }
+    else if (evt.code === 'Space'){
+        pause_unpause()
+    }
 });
 
 document.addEventListener('focus', (evt) => {
