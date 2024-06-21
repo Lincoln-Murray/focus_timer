@@ -141,6 +141,7 @@ document.addEventListener('focus', (evt) => {
 
 
 addEventListener('DOMContentLoaded', (evt) => {
+    resize()
     console.log('loaded')
     if (document.cookie != ''){
         console.log(document.cookie)
@@ -149,6 +150,23 @@ addEventListener('DOMContentLoaded', (evt) => {
     }
     update_time(time, true)
 });
+
+addEventListener('resize', (evt) => {
+    resize()
+});
+
+function resize() {
+    if (window.innerHeight >= window.innerWidth/0.75){
+        document.documentElement.style.setProperty('--expanded_size', '100vw')
+        document.documentElement.style.setProperty('--diameter', '100vw')
+        document.documentElement.style.setProperty('--text_size', '35vw')
+    }
+    else {
+        document.documentElement.style.setProperty('--expanded_size', '100vw')
+        document.documentElement.style.setProperty('--diameter', '75vh')
+        document.documentElement.style.setProperty('--text_size', '26vh')
+    }
+}
 
 /*
 function arc_end(_angle){

@@ -4,13 +4,15 @@
     --midground: #1c2541;
     --foreground: #129490;
     --text: #70B77E;
-    --diameter: 50vh;
+    --text_size: 26vh;
+    --diameter: 75vh;
     --expanded_size: 100vw;
 }
 
 html {
     background-color: var(--background);
-    overflow:hidden;
+    overflow: hidden;
+    
 }
 
 button {
@@ -92,10 +94,11 @@ button {
 }
 
 .timer{
+    overflow: visible;
     color: var(--text);
-    font-size: 20vh;
+    font-size: var(--text_size);
     text-align: center;
-    width: 45vh;
+    width: calc(var(--diameter)*0.9);
     background-color: transparent;
     border: transparent;
     margin: 0;
