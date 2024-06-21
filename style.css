@@ -4,6 +4,8 @@
     --midground: #1c2541;
     --foreground: #129490;
     --text: #70B77E;
+    --diameter: 50vh;
+    --expanded_size: 100vw;
 }
 
 html {
@@ -18,33 +20,33 @@ button {
 
 @keyframes shrink {
     from {
-        height: 100vw;
-        width: 100vw;
+        height: var(--expanded_size);
+        width: var(--expanded_size);
         background-color: transparent;
     }
     to {
-        height: 50vh;
-        width: 50vh;
+        height: var(--diameter);
+        width: var(--diameter);
         background-color: var(--foreground);
     }
 }
 
 @keyframes expand {
     from {
-        height: 50vh;
-        width: 50vh;
+        height: var(--diameter);
+        width: var(--diameter);
         background-color: var(--foreground);
     }
     to {
-        height: 100vw;
-        width: 100vw;
+        height: var(--expanded_size);
+        width: var(--expanded_size);
         background-color: transparent;
     }
 }
 
 .anim_dot {
-    height: 50vh;
-    width: 50vh;
+    height: var(--diameter);
+    width: var(--diameter);
     background-color: var(--foreground);
     border-radius: 50%;
     display: inline-block;
@@ -63,8 +65,8 @@ button {
 }
 
 .dot {
-    height: 50vh;
-    width: 50vh;
+    height: var(--diameter);
+    width: var(--diameter);
     background-color: var(--midground);
     border-radius: 50%;
     display: inline-block;
