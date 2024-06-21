@@ -18,33 +18,33 @@ button {
 
 @keyframes shrink {
     from {
-        height: 1920px;
-        width: 1920px;
+        height: 100vw;
+        width: 100vw;
         background-color: transparent;
     }
     to {
-        height: 500px;
-        width: 500px;
+        height: 50vh;
+        width: 50vh;
         background-color: var(--foreground);
     }
 }
 
 @keyframes expand {
     from {
-        height: 500px;
-        width: 500px;
+        height: 50vh;
+        width: 50vh;
         background-color: var(--foreground);
     }
     to {
-        height: 1920px;
-        width: 1920px;
+        height: 100vw;
+        width: 100vw;
         background-color: transparent;
     }
 }
 
 .anim_dot {
-    height: 500px;
-    width: 500px;
+    height: 50vh;
+    width: 50vh;
     background-color: var(--foreground);
     border-radius: 50%;
     display: inline-block;
@@ -63,8 +63,8 @@ button {
 }
 
 .dot {
-    height: 500px;
-    width: 500px;
+    height: 50vh;
+    width: 50vh;
     background-color: var(--midground);
     border-radius: 50%;
     display: inline-block;
@@ -91,9 +91,9 @@ button {
 
 .timer{
     color: var(--text);
-    font-size: 8em;
+    font-size: 20vh;
     text-align: center;
-    width: 450px;
+    width: 45vh;
     background-color: transparent;
     border: transparent;
     margin: 0;
