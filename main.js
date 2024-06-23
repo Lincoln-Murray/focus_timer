@@ -157,12 +157,12 @@ addEventListener('resize', (evt) => {
 
 function resize() {
     if (window.innerHeight >= window.innerWidth/0.75){
-        document.documentElement.style.setProperty('--expanded_size', '100vw')
+        document.documentElement.style.setProperty('--expanded_size_vertical', '300vh')
         document.documentElement.style.setProperty('--diameter', '100vw')
         document.documentElement.style.setProperty('--text_size', '35vw')
     }
     else {
-        document.documentElement.style.setProperty('--expanded_size', '100vw')
+        document.documentElement.style.setProperty('--expanded_size_vertical', '100vw')
         document.documentElement.style.setProperty('--diameter', '75vh')
         document.documentElement.style.setProperty('--text_size', '26vh')
     }

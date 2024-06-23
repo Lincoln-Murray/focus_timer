@@ -6,7 +6,8 @@
     --text: #70B77E;
     --text_size: 26vh;
     --diameter: 75vh;
-    --expanded_size: 100vw;
+    --expanded_size_vertical: 100vw;
+    --expanded_size_horizontal: 100vw;
 }
 
 html {
@@ -22,8 +23,8 @@ button {
 
 @keyframes shrink {
     from {
-        height: var(--expanded_size);
-        width: var(--expanded_size);
+        height: var(--expanded_size_vertical);
+        width: var(--expanded_size_horizontal);
         background-color: transparent;
     }
     to {
@@ -40,8 +41,8 @@ button {
         background-color: var(--foreground);
     }
     to {
-        height: var(--expanded_size);
-        width: var(--expanded_size);
+        height: var(--expanded_size_vertical);
+        width: var(--expanded_size_horizontal);
         background-color: transparent;
     }
 }
