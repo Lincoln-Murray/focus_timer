@@ -167,12 +167,3 @@ function resize() {
         document.documentElement.style.setProperty('--text_size', '26vh')
     }
 }
-
-/*
-function arc_end(_angle){
-    let angle = _angle
-    document.getElementById('end').style.mozTransform = 'rotate('+String(angle)+' deg)';
-    document.getElementById('end').style.msTransform = 'rotate('+String(angle)+' deg)';
-    document.getElementById('end').style.oTransform = 'rotate('+String(angle)+' deg)';
-    document.getElementById('end').style.transform = 'rotate('+String(angle)+' deg)';
-}*/
