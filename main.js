@@ -91,7 +91,7 @@ function update_time(_temp_time, _skip = false){
                 document.getElementById('title').textContent = 'Focus Timer- ' + time_string
             }
             time = collect_input()
-            console.log(time)
+            //console.log(time)
             document.cookie = 'time =' + String(time)
         }
     }
@@ -142,11 +142,11 @@ document.addEventListener('focus', (evt) => {
 
 addEventListener('DOMContentLoaded', (evt) => {
     resize()
-    console.log('loaded')
+    //console.log('loaded')
     if (document.cookie != ''){
-        console.log(document.cookie)
+        //console.log(document.cookie)
         time = parseInt(document.cookie.split('=')[1])
-        console.log(time)
+        //console.log(time)
     }
     update_time(time, true)
 });
