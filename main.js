@@ -91,8 +91,13 @@ function update_time(_temp_time, _skip = false){
                 document.getElementById('title').textContent = 'Focus Timer- ' + time_string
             }
             time = collect_input()
-            //console.log(time)
-            document.cookie = 'time =' + String(time)
+            if (playing){
+                document.cookie = 'time =' + String(time) + ';playing=1;'
+            }
+            else {
+                document.cookie = 'time =' + String(time) + ';playing=0;'
+            }
+            console.log(document.cookie)
         }
     }
 }
@@ -145,7 +150,19 @@ addEventListener('DOMContentLoaded', (evt) => {
     //console.log('loaded')
     if (document.cookie != ''){
         //console.log(document.cookie)
-        time = parseInt(document.cookie.split('=')[1])
+        split_cookie = document.cookie.split(';')
+        time = parseInt(split_cookie[0].split('=')[1])
+        if (split_cookie[1] != undefined) {
+            if (parseInt(split_cookie[1].split('=')[1]) === 1) {
+                playing = true
+            }
+            else {
+                playing = false
+            }
+        }
+        else {
+            document.cookie = split_cookie[0] + 'playing=0;'
+        }
         //console.log(time)
     }
     update_time(time, true)
