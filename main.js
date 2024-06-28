@@ -97,7 +97,7 @@ function update_time(_temp_time, _skip = false){
             else {
                 document.cookie = 'time =' + String(time) + ';playing=0;'
             }
-            console.log(document.cookie)
+            //console.log(document.cookie)
         }
     }
 }
