@@ -97,7 +97,6 @@ function update_time(_temp_time, _skip = false){
             else {
                 document.cookie = 'time =' + String(time) + ';playing=0;'
             }
-            //console.log(document.cookie)
         }
     }
 }
@@ -163,7 +162,6 @@ addEventListener('DOMContentLoaded', (evt) => {
         else {
             document.cookie = split_cookie[0] + 'playing=0;'
         }
-        //console.log(time)
     }
     update_time(time, true)
 });
