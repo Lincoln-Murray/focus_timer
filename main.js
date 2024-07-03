@@ -4,9 +4,10 @@ time = 600
 prev_time = -600
 
 function start(){
-    end()
+    time = collect_input()
     var endDate = new Date().getTime() + (time)*1000+300;
     playing = true
+    document.cookie = 'time_playing=' + String(time) + ':1;'
     var timer = setInterval(function() {
         if (playing == true && new Date().getTime() <= endDate ){
             let now = new Date().getTime();
@@ -23,10 +24,12 @@ function start(){
 function end(){
     time = collect_input()
     playing = false
+    document.cookie = 'time_playing=' + String(time) + ':0;'
     update_time(time)
 }
 
 function pause_unpause(){
+
     if (playing == true){
         document.getElementById('anim_dot').style.animationName = 'shrink'
         document.getElementById('anim_dot').style.backgroundColor = 'Var(--foreground)'
@@ -35,6 +38,7 @@ function pause_unpause(){
     else{
         document.getElementById('anim_dot').style.animationName = 'expand'
         document.getElementById('anim_dot').style.backgroundColor = 'Var(--midground)'
+        console.log(document.cookie, 'p_up')
         start()
     }
 }
@@ -91,12 +95,6 @@ function update_time(_temp_time, _skip = false){
                 document.getElementById('title').textContent = 'Focus Timer- ' + time_string
             }
             time = collect_input()
-            if (playing){
-                document.cookie = 'time =' + String(time) + ';playing=1;'
-            }
-            else {
-                document.cookie = 'time =' + String(time) + ';playing=0;'
-            }
             console.log(document.cookie)
         }
     }
@@ -148,24 +146,29 @@ document.addEventListener('focus', (evt) => {
 addEventListener('DOMContentLoaded', (evt) => {
     resize()
     //console.log('loaded')
+    if (document.cookie.split(';')[0].split('=')[0] === 'time') {
+        document.cookie = 'time=0;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+    }
     if (document.cookie != ''){
         //console.log(document.cookie)
-        split_cookie = document.cookie.split(';')
-        time = parseInt(split_cookie[0].split('=')[1])
+        split_cookie = document.cookie.split(';')[0].split('=')[1].split(':')
+        time = parseInt(split_cookie[0])
         if (split_cookie[1] != undefined) {
-            if (parseInt(split_cookie[1].split('=')[1]) === 1) {
-                playing = true
+            if (parseInt(split_cookie[1]) === 1) {
+                playing = false
             }
             else {
-                playing = false
+                playing = true
             }
         }
         else {
-            document.cookie = split_cookie[0] + 'playing=0;'
+            document.cookie = 'time_playing=' + split_cookie[0] + ':0;'
         }
         //console.log(time)
     }
     update_time(time, true)
+    console.log(document.cookie, playing)
+    pause_unpause()
 });
 
 addEventListener('resize', (evt) => {
