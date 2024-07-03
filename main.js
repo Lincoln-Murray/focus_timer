@@ -95,7 +95,6 @@ function update_time(_temp_time, _skip = false){
                 document.getElementById('title').textContent = 'Focus Timer- ' + time_string
             }
             time = collect_input()
-            console.log(document.cookie)
         }
     }
 }
@@ -164,7 +163,6 @@ addEventListener('DOMContentLoaded', (evt) => {
         else {
             document.cookie = 'time_playing=' + split_cookie[0] + ':0;'
         }
-        //console.log(time)
     }
     update_time(time, true)
     console.log(document.cookie, playing)
