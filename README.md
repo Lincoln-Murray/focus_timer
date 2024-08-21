@@ -4,6 +4,7 @@ This is pretty much just a small project I've been working on to use in my own t
 <a href = 'https://lincoln-murray.github.io/focus_timer/'>Focus Timer</a>  
 ## Features  
 - Cookies  
+  - Used to store time and playback state 
 - Reliable counting  
 - Smooth animations  
 - Simple UI  
