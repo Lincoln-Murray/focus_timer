@@ -57,8 +57,11 @@ function collect_input(){
 }
 
 function update_time(_temp_time, _skip = false){
-    if (playing === false && _skip === false){
+    if (playing === false && _skip === false && time != 0){
         document.getElementById('title').textContent = 'Focus Timer- Paused'
+    }
+    else if (time == 0) {
+        document.getElementById('title').textContent = 'Focus Timer- Finished'
     }
     else{
         if (_temp_time != prev_time){
@@ -165,7 +168,7 @@ addEventListener('DOMContentLoaded', (evt) => {
         }
     }
     update_time(time, true)
-    console.log(document.cookie, playing)
+    //console.log(document.cookie, playing)
     pause_unpause()
 });
 
