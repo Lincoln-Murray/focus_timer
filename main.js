@@ -62,6 +62,7 @@ function update_time(_temp_time, _skip = false){
     }
     else if (time == 0) {
         document.getElementById('title').textContent = 'Focus Timer- Finished'
+        document.getElementById('timer').value = 'Done'
     }
     else{
         if (_temp_time != prev_time){
