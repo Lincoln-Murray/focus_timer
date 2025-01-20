@@ -61,6 +61,10 @@ function update_time(_temp_time, _skip = false){
         document.getElementById('title').textContent = 'Focus Timer- Paused'
     }
     else if (time == 0) {
+        if (document.getElementById('timer').value != 'Done') {
+            alarm = new Audio('alarm.mp3')
+            alarm.play()
+        }
         document.getElementById('title').textContent = 'Focus Timer- Finished'
         document.getElementById('timer').value = 'Done'
     }
