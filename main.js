@@ -33,6 +33,10 @@ function pause_unpause(){
     if (playing == true){
         document.getElementById('anim_dot').style.animationName = 'shrink'
         document.getElementById('anim_dot').style.backgroundColor = 'Var(--foreground)'
+        if (time == 0 || time == NaN) {
+            alarm.pause()
+            console.log('pausing audio')
+        }
         end()
     }
     else{
