@@ -42,7 +42,6 @@ function pause_unpause(){
     else{
         document.getElementById('anim_dot').style.animationName = 'expand'
         document.getElementById('anim_dot').style.backgroundColor = 'Var(--midground)'
-        console.log(document.cookie, 'p_up')
         start()
     }
 }
