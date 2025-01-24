@@ -35,7 +35,6 @@ function pause_unpause(){
         document.getElementById('anim_dot').style.backgroundColor = 'Var(--foreground)'
         if (time == 0 || time == NaN) {
             alarm.pause()
-            console.log('pausing audio')
         }
         end()
     }
@@ -70,6 +69,7 @@ function update_time(_temp_time, _skip = false){
         }
         document.getElementById('title').textContent = 'Focus Timer- Finished'
         document.getElementById('timer').value = 'Done'
+        
     }
     else{
         if (_temp_time != prev_time){
@@ -155,12 +155,10 @@ document.addEventListener('focus', (evt) => {
 
 addEventListener('DOMContentLoaded', (evt) => {
     resize()
-    //console.log('loaded')
     if (document.cookie.split(';')[0].split('=')[0] === 'time') {
         document.cookie = 'time=0;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
     }
     if (document.cookie != ''){
-        //console.log(document.cookie)
         split_cookie = document.cookie.split(';')[0].split('=')[1].split(':')
         time = parseInt(split_cookie[0])
         if (split_cookie[1] != undefined) {
@@ -176,7 +174,6 @@ addEventListener('DOMContentLoaded', (evt) => {
         }
     }
     update_time(time, true)
-    //console.log(document.cookie, playing)
     pause_unpause()
 });
 
