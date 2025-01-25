@@ -9,4 +9,5 @@ This is pretty much just a small project I've been working on to use in my own t
 - Smooth animations  
 - Simple UI  
 - Mobile support  
-- Well maintained 
+- Well maintained  
+- Timer complete sound 
